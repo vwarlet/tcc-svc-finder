@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Log Details</title>
+        <link rel="stylesheet" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready( function () {
+                $('#example').DataTable();
+            } );
+        </script>
+    </head>
+    <body>
+        <b><a href="{{ url_for('index')}}">LOGS</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('services')}}">SERVICES</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('endpoints')}}">ENDPOINTS</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('filters')}}">FILTERS</a></b><br><br>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Log</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for det in dets %}
+            <tr>
+                <td>{{ det.detail_id }}</td>
+                <td>{{ det.detail_name }}</td>
+                <td>{{ det.detail_description }}</td>
+                <td>{{ det.log_id}}</td>
+            </tr>
+            {% endfor %}   
+        </tbody>
+        </table>
+    </body>
+</html>

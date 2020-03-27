@@ -1,0 +1,16 @@
+﻿*.sln
+*.pyproj.user
+*.pyproj
+*.log
+.vs/
+.vscode/
+obj/
+bin/
+pyenv/
+venv/
+__pycache__/
+.cache/
+localdb.db
+.coverage
+results.fpr
+libman.json

@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Services Logs</title>
+        <link rel="stylesheet" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready( function () {
+                $('#example').DataTable();
+            } );
+        </script>
+    </head>
+    <body>
+        <b><a href="{{ url_for('index')}}">LOGS</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('services')}}">SERVICES</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('endpoints')}}">ENDPOINTS</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('filters')}}">FILTERS</a></b><br><br>
+        <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Created</th>
+                <th>Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td><a href="{{ url_for('details')}}">{{ log.log_id }}</a></td>
+                <td><a href="{{ url_for('details')}}">{{ log.log_name }}</a></td>
+                <td>{{ log.log_status }}</td>
+                <td>{{ log.time_created }}</td>
+                <td>{{ log.time_updated }}</td>
+            </tr>
+            {% endfor %}    
+        </tbody>
+        </table>
+    </body>
+</html>
